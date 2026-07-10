@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nichita Bambuleac | Backend & Integraciones</title>
+    <title>Nichita Bambuleac | Portfolio</title>
+    
+    <!-- Etiquetas Open Graph para compartir en LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nichita Bambuleac | Backend & Integraciones">
+    <meta property="og:description" content="Técnico Superior DAM. Portfolio profesional enfocado en integración de sistemas, APIs y despliegue.">
+    <meta property="og:url" content="https://Nichita433.github.io/">
+    <!-- Nota: Si subes una foto a tu repo llamada 'perfil.jpg', puedes poner su ruta aquí abajo para que salga la miniatura -->
+    <meta property="og:image" content="">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-dark: #050505;
@@ -21,8 +31,8 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-light);
-            background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
-                              radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
+            background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.05), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.05), transparent 25%);
             line-height: 1.7;
         }
 
@@ -43,59 +53,57 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 
         /* Hero */
-        .hero { padding: 12rem 0 8rem 0; text-align: left; }
-        .hero-badge {
-            display: inline-block; padding: 0.4rem 1rem; border-radius: 50px;
-            background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #818cf8; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem;
-        }
-        .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero { padding: 10rem 0 6rem 0; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
         .gradient-text { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin-bottom: 2rem; }
-        .btn {
-            display: inline-block; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600;
-            text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+        .hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 800px; margin-bottom: 2rem; }
+        
+        .contact-bar { display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .contact-bar span i { color: var(--primary); margin-right: 0.5rem; }
+
+        /* Botones CTA */
+        .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+        .btn { padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2); }
+        .btn-primary:hover { background: #4f46e5; border-color: #4f46e5; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+        .btn-outline { background: transparent; color: var(--text-light); border: 1px solid rgba(255,255,255,0.2); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
         /* Sections */
-        section { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .section-title { font-size: 2.5rem; margin-bottom: 3rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; }
-        .section-title i { color: var(--primary); font-size: 2rem; }
+        section { padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .section-title { font-size: 2rem; margin-bottom: 2.5rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; }
+        .section-title i { color: var(--primary); font-size: 1.8rem; }
 
-        /* Proyectos / Skills (Glassmorphism Cards) */
+        /* Grid Cards */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
             background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s; position: relative; overflow: hidden;
+            border-radius: 12px; padding: 2rem; transition: transform 0.3s;
         }
-        .card:hover { transform: translateY(-5px); border-color: rgba(99, 102, 241, 0.5); }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light); }
-        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(99, 102, 241, 0.3); }
+        .card h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-light); }
         
         .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.85rem; color: #cbd5e1; font-weight: 600; }
-        .tag-highlight { border-color: var(--primary); color: #818cf8; background: rgba(99, 102, 241, 0.1); }
+        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.85rem; color: #cbd5e1; }
+        .tag-highlight { border-color: var(--primary); color: #818cf8; background: rgba(99, 102, 241, 0.1); font-weight: 600; }
 
-        /* Experiencia y Educación (Timeline) */
+        /* Timeline */
         .timeline { border-left: 2px solid rgba(255,255,255,0.1); margin-left: 1rem; padding-left: 2rem; }
-        .timeline-item { margin-bottom: 3rem; position: relative; }
+        .timeline-item { margin-bottom: 2.5rem; position: relative; }
         .timeline-item::before {
             content: ''; position: absolute; left: -2.45rem; top: 0.2rem; width: 16px; height: 16px;
             background: var(--primary); border-radius: 50%; border: 4px solid var(--bg-dark);
         }
         .time-date { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
-        .time-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .time-company { color: var(--text-light); font-size: 1rem; margin-bottom: 1rem; opacity: 0.8;}
-        .time-desc { color: var(--text-dim); font-size: 0.95rem; }
+        .time-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .time-company { color: var(--text-light); font-size: 0.95rem; margin-bottom: 0.5rem; opacity: 0.9;}
+        .time-desc { color: var(--text-dim); font-size: 0.9rem; }
+        
+        ul.cv-list { list-style-position: inside; color: var(--text-dim); font-size: 0.95rem; }
+        ul.cv-list li { margin-bottom: 0.5rem; }
 
         /* Footer */
-        footer { padding: 4rem 0; text-align: center; margin-top: 2rem; }
-        .contact-info { color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem; }
-        .contact-info i { color: var(--primary); margin-right: 0.5rem; }
-        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--text-light); margin: 0 0.5rem; transition: background 0.3s, color 0.3s; text-decoration: none; font-size: 1.2rem; }
-        .social-icons a:hover { background: var(--primary); color: white; }
+        footer { padding: 3rem 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -105,6 +113,7 @@
             <a href="#" class="logo">NICHITA<span>.</span></a>
             <div class="nav-links">
                 <a href="#perfil">Perfil</a>
+                <a href="#habilidades">Skills</a>
                 <a href="#experiencia">Experiencia</a>
                 <a href="#formacion">Formación</a>
             </div>
@@ -112,101 +121,171 @@
     </nav>
 
     <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero Section: Perfil y Contacto -->
         <section class="hero" id="perfil">
-            <div class="hero-badge"><i class="fa-solid fa-code"></i> Arquitectura Backend & APIs</div>
             <h1>Nichita <br><span class="gradient-text">Bambuleac.</span></h1>
-            <p>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). Especializado en arquitectura backend, integración de sistemas y optimización de bases de datos. Utilizo asistentes de IA para garantizar código limpio, eficiente y escalable en entornos ágiles.</p>
             
-            <div style="margin-top: 2rem;">
-                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-light);">Competencia Lingüística Plena (5 Idiomas):</h3>
+            <div class="contact-bar">
+                <span><i class="fa-solid fa-calendar"></i> 11/03/2006</span>
+                <span><i class="fa-solid fa-phone"></i> +34 642 54 60 29</span>
+                <span><i class="fa-solid fa-envelope"></i> nichitastasoc@gmail.com</span>
+                <span><i class="fa-solid fa-location-dot"></i> Alcalá de Henares, Madrid</span>
+            </div>
+
+            <p>Técnico Superior en DAM especializado en arquitectura backend, APIs e integración de sistemas. Optimizo bases de datos y utilizo asistentes de IA para garantizar un código limpio y eficiente. Perfil proactivo, comunicativo y con capacidad operativa en 5 idiomas. Busco mi primera oportunidad profesional para aportar trabajo en equipo y transformar necesidades de negocio en soluciones escalables.</p>
+            
+            <div style="margin-top: 1.5rem;">
                 <div class="tags">
-                    <span class="tag tag-highlight">Español (Nativo)</span>
-                    <span class="tag tag-highlight">Ruso (Nativo)</span>
-                    <span class="tag tag-highlight">Rumano (Nativo)</span>
-                    <span class="tag tag-highlight">Ucraniano (Muy Alto)</span>
-                    <span class="tag">Inglés (Técnico)</span>
+                    <span class="tag tag-highlight">Español: Nativo</span>
+                    <span class="tag tag-highlight">Ruso: Nativo</span>
+                    <span class="tag tag-highlight">Rumano: Nativo</span>
+                    <span class="tag tag-highlight">Ucraniano: Muy Alto</span>
+                    <span class="tag">Inglés: Técnico</span>
                 </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="btn-group">
+                <!-- Asegúrate de subir el archivo PDF con este mismo nombre exacto a tu repositorio -->
+                <a href="CV NICHITA BAMBULEAC.pdf" target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-download"></i> Descargar CV
+                </a>
+                <a href="mailto:nichitastasoc@gmail.com" class="btn btn-outline">
+                    <i class="fa-solid fa-paper-plane"></i> Contactar
+                </a>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Stack Tecnológico</h2>
+        <!-- Próximos Pasos (Roadmap) Section -->
+        <section id="roadmap">
+            <h2 class="section-title"><i class="fa-solid fa-rocket"></i> Proyección Profesional</h2>
+            <div class="card" style="border-left: 4px solid var(--primary);">
+                <span class="time-date">Próximo objetivo académico: Septiembre 2026</span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Curso de Especialización en Inteligencia Artificial y Big Data</h3>
+                <div class="time-company">IES Clara del Rey</div>
+                <p style="margin-top: 1rem; color: var(--text-dim); margin-bottom: 0;">Evolución de mi perfil técnico hacia el procesamiento de datos a gran escala y la arquitectura de modelos de IA, fortaleciendo mi base actual en desarrollo multiplataforma.</p>
+            </div>
+        </section>
+
+        <!-- Habilidades & Skills Section -->
+        <section id="habilidades">
+            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Habilidades y Skills</h2>
             <div class="grid">
                 
                 <div class="card">
                     <h3>Lenguajes y Bases de Datos</h3>
-                    <p>Desarrollo de lógica de negocio e infraestructura de datos relacionales orientada al rendimiento.</p>
                     <div class="tags">
                         <span class="tag">Java</span>
                         <span class="tag">Python</span>
                         <span class="tag">SQL</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">SQLite</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
                         <span class="tag">JavaScript</span>
+                        <span class="tag">SQLite</span>
+                        <span class="tag">MySQL</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h3>Sistemas, Redes e IoT</h3>
-                    <p>Despliegue de sistemas, mantenimiento de infraestructuras y conexión de hardware mediante protocolos estándar.</p>
+                    <h3>Entornos de Desarrollo (IDE)</h3>
                     <div class="tags">
-                        <span class="tag">Conexión IoT (REST/JSON)</span>
-                        <span class="tag">AWS</span>
-                        <span class="tag">Linux / Windows</span>
-                        <span class="tag">VirtualBox</span>
-                        <span class="tag">Integración de APIs</span>
+                        <span class="tag">Eclipse</span>
+                        <span class="tag">Android Studio</span>
+                        <span class="tag">Apache Netbeans 23</span>
+                        <span class="tag">Visual Studio Code</span>
+                        <span class="tag">Jupyterlab</span>
                     </div>
+                </div>
+
+                <div class="card">
+                    <h3>Sistemas y Herramientas</h3>
+                    <div class="tags">
+                        <span class="tag">Windows</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">VirtualBox</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Odoo</span>
+                        <span class="tag">WordPress</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">Office 365</span>
+                        <span class="tag">Microsoft Visio 2021</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Habilidades Clave</h3>
+                    <ul class="cv-list">
+                        <li>Integración de APIs.</li>
+                        <li>Desarrollo asistido por IA.</li>
+                        <li>Despliegue de Sistemas.</li>
+                        <li>Metodologías Ágiles.</li>
+                        <li>Mantenimiento de Redes y Hardware.</li>
+                        <li>Conexión de Hardware IoT (REST/JSON).</li>
+                    </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- Experiencia Section -->
+        <!-- Experiencia Laboral Section -->
         <section id="experiencia">
-            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Práctica</h2>
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Laboral</h2>
             <div class="timeline">
                 
                 <div class="timeline-item">
                     <span class="time-date">Prácticas</span>
                     <h3 class="time-title">Integrador de Sistemas</h3>
                     <div class="time-company">AEME ETE (AEME Group)</div>
-                    <p class="time-desc">Integración y despliegue de sistemas y APIs en entornos web y cloud. Ejecución de control de calidad (QA), monitorización activa de logs y validación de protocolos de seguridad.</p>
+                    <ul class="cv-list">
+                        <li>Integración y despliegue de sistemas y APIs en entornos web y cloud.</li>
+                        <li>Control de calidad (QA), monitorización de logs y validación de seguridad.</li>
+                    </ul>
                 </div>
 
                 <div class="timeline-item">
                     <span class="time-date">Prácticas</span>
                     <h3 class="time-title">Técnico de Soporte</h3>
                     <div class="time-company">CD Factory</div>
-                    <p class="time-desc">Diagnóstico y resolución de incidencias complejas de hardware y software. Soporte técnico directo a usuarios y mantenimiento preventivo de equipos informáticos.</p>
+                    <ul class="cv-list">
+                        <li>Soporte técnico a usuarios y mantenimiento de equipos informáticos.</li>
+                        <li>Diagnóstico y resolución de incidencias de hardware y software.</li>
+                    </ul>
                 </div>
 
                 <div class="timeline-item">
                     <span class="time-date">Prácticas</span>
                     <h3 class="time-title">Especialista SEO y Web</h3>
                     <div class="time-company">Meigas da rúa</div>
-                    <p class="time-desc">Análisis avanzado de métricas web y mejora de la experiencia de usuario (UX). Optimización SEO técnica y gestión de sistemas de contenidos basados en WordPress.</p>
+                    <ul class="cv-list">
+                        <li>Optimización SEO y gestión de contenidos en WordPress.</li>
+                        <li>Análisis de métricas web y mejora de la experiencia de usuario (UX).</li>
+                    </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- Formación Section -->
+        <!-- Formación Académica Section -->
         <section id="formacion">
-            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formación Académica</h2>
+            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formación</h2>
             <div class="timeline">
                 
                 <div class="timeline-item">
-                    <span class="time-date">2024 — 2026</span>
-                    <h3 class="time-title">Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
-                    <div class="time-company">IES Barajas</div>
+                    <span class="time-date">2024 / 2026</span>
+                    <h3 class="time-title">Formación Profesional de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                    <div class="time-company">IES BARAJAS</div>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time-date">2022 — 2024</span>
-                    <h3 class="time-title">Grado Medio en Sistemas Microinformáticos y Redes (SMR)</h3>
-                    <div class="time-company">IES Barajas</div>
+                    <span class="time-date">2022 / 2024</span>
+                    <h3 class="time-title">Formación Profesional de Grado Medio en Sistemas Microinformáticos y Redes (SMR)</h3>
+                    <div class="time-company">IES BARAJAS</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time-date">2018 / 2022</span>
+                    <h3 class="time-title">Educación Secundaria Obligatoria</h3>
+                    <div class="time-company">COLEGIO CALASANZ</div>
                 </div>
 
             </div>
@@ -214,19 +293,7 @@
 
         <!-- Footer -->
         <footer>
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">¿Iniciamos un proyecto?</h2>
-            
-            <div class="contact-info">
-                <p><i class="fa-solid fa-location-dot"></i> Alcalá de Henares, Madrid</p>
-                <p style="margin-top: 0.5rem;"><i class="fa-solid fa-envelope"></i> nichitastasoc@gmail.com</p>
-            </div>
-
-            <div class="social-icons">
-                <a href="mailto:nichitastasoc@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-            </div>
-            <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">© 2026 Nichita Bambuleac. Construido para escalar.</p>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">© Nichita Bambuleac | Portfolio Técnico.</p>
         </footer>
     </div>
 
