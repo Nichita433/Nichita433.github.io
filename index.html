@@ -3,107 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nichita Bambuleac | Portfolio</title>
+    <title>Nichita Bambuleac | Backend & Integraciones</title>
     
-    <!-- Etiquetas Open Graph para compartir en LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nichita Bambuleac | Backend & Integraciones">
     <meta property="og:description" content="Técnico Superior DAM. Portfolio profesional enfocado en integración de sistemas, APIs y despliegue.">
     <meta property="og:url" content="https://Nichita433.github.io/">
-    <!-- Nota: Si subes una foto a tu repo llamada 'perfil.jpg', puedes poner su ruta aquí abajo para que salga la miniatura -->
-    <meta property="og:image" content="">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #050505;
-            --bg-card: rgba(25, 25, 30, 0.6);
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --text-light: #f8fafc;
-            --text-dim: #94a3b8;
+            --bg-base: #0f172a; /* Slate profundo premium */
+            --bg-grid: rgba(255, 255, 255, 0.03);
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #3b82f6; /* Azul técnico vibrante */
+            --secondary: #8b5cf6; /* Morado tecnológico */
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            background-image: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.05), transparent 25%),
-                              radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.05), transparent 25%);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            /* Cuadrícula de fondo profesional */
+            background-image: 
+                linear-gradient(var(--bg-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
             line-height: 1.7;
+            position: relative;
         }
 
-        /* Navbar */
+        /* Gradiente sutil superior para dar volumen */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 500px;
+            background: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.15), transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Animaciones */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Navbar estilo Glass */
         nav {
-            position: fixed; width: 100%; top: 0; background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: fixed; width: 100%; top: 0; 
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            z-index: 1000; border-bottom: 1px solid var(--card-border);
         }
         .nav-content {
             max-width: 1000px; margin: 0 auto; padding: 1rem 2rem;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; color: var(--text-light); text-decoration: none;}
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.5px; color: var(--text-main); text-decoration: none;}
         .logo span { color: var(--primary); }
-        .nav-links a { color: var(--text-light); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 
         /* Hero */
-        .hero { padding: 10rem 0 6rem 0; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-        .gradient-text { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; }
-        .hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 800px; margin-bottom: 2rem; }
+        .hero { padding: 11rem 0 7rem 0; text-align: left; }
+        .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.2rem; letter-spacing: -1px; }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; color: transparent; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; margin-bottom: 2.5rem; }
         
-        .contact-bar { display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .contact-bar span i { color: var(--primary); margin-right: 0.5rem; }
+        .contact-bar { display: flex; flex-wrap: wrap; gap: 1.5rem; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; background: rgba(30, 41, 59, 0.4); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--card-border); backdrop-filter: blur(5px); }
+        .contact-bar span { display: flex; align-items: center; }
+        .contact-bar span i { color: var(--primary); margin-right: 0.6rem; font-size: 1.1rem; }
 
-        /* Botones CTA */
+        /* Botones Premium CTA */
         .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-        .btn { padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
-        .btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2); }
-        .btn-primary:hover { background: #4f46e5; border-color: #4f46e5; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
-        .btn-outline { background: transparent; color: var(--text-light); border: 1px solid rgba(255,255,255,0.2); }
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .btn { padding: 0.9rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39); border: 1px solid transparent; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.23); }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid rgba(255,255,255,0.15); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--text-main); background: rgba(59, 130, 246, 0.05); transform: translateY(-2px); }
 
         /* Sections */
-        section { padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .section-title { font-size: 2rem; margin-bottom: 2.5rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; }
-        .section-title i { color: var(--primary); font-size: 1.8rem; }
+        section { padding: 6rem 0; position: relative; }
+        section::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--card-border), transparent); }
+        section:last-child::after { display: none; }
+        
+        .section-title { font-size: 2.2rem; margin-bottom: 3rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; letter-spacing: -0.5px; }
+        .section-title i { color: var(--primary); font-size: 1.8rem; opacity: 0.9; }
 
-        /* Grid Cards */
+        /* Grid Cards Premium */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
-            background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px; padding: 2rem; transition: transform 0.3s;
+            background: var(--bg-card); backdrop-filter: blur(10px); 
+            border: 1px solid var(--card-border);
+            border-radius: 16px; padding: 2.2rem; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
         }
-        .card:hover { transform: translateY(-5px); border-color: rgba(99, 102, 241, 0.3); }
-        .card h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-light); }
+        /* Efecto Glow en tarjetas */
+        .card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: all 0.5s;
+        }
+        .card:hover { transform: translateY(-6px); border-color: rgba(99, 102, 241, 0.4); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow); }
+        .card:hover::before { left: 100%; }
         
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.85rem; color: #cbd5e1; }
-        .tag-highlight { border-color: var(--primary); color: #818cf8; background: rgba(99, 102, 241, 0.1); font-weight: 600; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--text-main); font-weight: 700; }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .tag { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255,255,255,0.08); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; color: #cbd5e1; font-weight: 500; transition: border-color 0.3s; }
+        .card:hover .tag { border-color: rgba(255,255,255,0.15); }
+        .tag-highlight { border-color: rgba(59, 130, 246, 0.4); color: #93c5fd; background: rgba(59, 130, 246, 0.1); font-weight: 600; }
 
-        /* Timeline */
-        .timeline { border-left: 2px solid rgba(255,255,255,0.1); margin-left: 1rem; padding-left: 2rem; }
-        .timeline-item { margin-bottom: 2.5rem; position: relative; }
+        /* Timeline Premium */
+        .timeline { border-left: 2px solid var(--card-border); margin-left: 1rem; padding-left: 2.5rem; }
+        .timeline-item { margin-bottom: 3.5rem; position: relative; }
         .timeline-item::before {
-            content: ''; position: absolute; left: -2.45rem; top: 0.2rem; width: 16px; height: 16px;
-            background: var(--primary); border-radius: 50%; border: 4px solid var(--bg-dark);
+            content: ''; position: absolute; left: -2.95rem; top: 0.2rem; width: 14px; height: 14px;
+            background: var(--bg-base); border-radius: 50%; border: 3px solid var(--primary);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
-        .time-date { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
-        .time-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .time-company { color: var(--text-light); font-size: 0.95rem; margin-bottom: 0.5rem; opacity: 0.9;}
-        .time-desc { color: var(--text-dim); font-size: 0.9rem; }
+        .time-date { color: #60a5fa; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.6rem; display: inline-block; text-transform: uppercase; letter-spacing: 1px; }
+        .time-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text-main); }
+        .time-company { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; font-weight: 500; }
         
-        ul.cv-list { list-style-position: inside; color: var(--text-dim); font-size: 0.95rem; }
-        ul.cv-list li { margin-bottom: 0.5rem; }
+        ul.cv-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; }
+        ul.cv-list li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
+        ul.cv-list li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
 
+        /* Tarjeta de Roadmap Especial */
+        .roadmap-card { background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)); border-left: 4px solid var(--secondary); }
+        
         /* Footer */
-        footer { padding: 3rem 0; text-align: center; }
+        footer { padding: 4rem 0; text-align: center; }
     </style>
 </head>
 <body>
@@ -121,20 +168,22 @@
     </nav>
 
     <div class="container">
-        <!-- Hero Section: Perfil y Contacto -->
+        <!-- Hero Section -->
         <section class="hero" id="perfil">
-            <h1>Nichita <br><span class="gradient-text">Bambuleac.</span></h1>
+            <div class="animate-up">
+                <h1>Nichita <br><span class="gradient-text">Bambuleac.</span></h1>
+            </div>
             
-            <div class="contact-bar">
+            <div class="contact-bar animate-up delay-1">
                 <span><i class="fa-solid fa-calendar"></i> 11/03/2006</span>
                 <span><i class="fa-solid fa-phone"></i> +34 642 54 60 29</span>
                 <span><i class="fa-solid fa-envelope"></i> nichitastasoc@gmail.com</span>
                 <span><i class="fa-solid fa-location-dot"></i> Alcalá de Henares, Madrid</span>
             </div>
 
-            <p>Técnico Superior en DAM especializado en arquitectura backend, APIs e integración de sistemas. Optimizo bases de datos y utilizo asistentes de IA para garantizar un código limpio y eficiente. Perfil proactivo, comunicativo y con capacidad operativa en 5 idiomas. Busco mi primera oportunidad profesional para aportar trabajo en equipo y transformar necesidades de negocio en soluciones escalables.</p>
+            <p class="animate-up delay-2">Técnico Superior en DAM especializado en arquitectura backend, APIs e integración de sistemas. Optimizo bases de datos y utilizo asistentes de IA para garantizar un código limpio y eficiente. Perfil proactivo, comunicativo y con capacidad operativa en 5 idiomas. Busco mi primera oportunidad profesional para aportar trabajo en equipo y transformar necesidades de negocio en soluciones escalables.</p>
             
-            <div style="margin-top: 1.5rem;">
+            <div class="animate-up delay-2" style="margin-top: 1.5rem;">
                 <div class="tags">
                     <span class="tag tag-highlight">Español: Nativo</span>
                     <span class="tag tag-highlight">Ruso: Nativo</span>
@@ -144,10 +193,9 @@
                 </div>
             </div>
 
-            <!-- Botones de Acción -->
-            <div class="btn-group">
-                <!-- Asegúrate de subir el archivo PDF con este mismo nombre exacto a tu repositorio -->
-                <a href="CV NICHITA BAMBULEAC.pdf" target="_blank" class="btn btn-primary">
+            <!-- Botones CTA -->
+            <div class="btn-group animate-up delay-3">
+                <a href="CV_NICHITA_BAMBULEAC.pdf" target="_blank" class="btn btn-primary">
                     <i class="fa-solid fa-download"></i> Descargar CV
                 </a>
                 <a href="mailto:nichitastasoc@gmail.com" class="btn btn-outline">
@@ -156,18 +204,18 @@
             </div>
         </section>
 
-        <!-- Próximos Pasos (Roadmap) Section -->
+        <!-- Proyección Profesional (Roadmap) -->
         <section id="roadmap">
             <h2 class="section-title"><i class="fa-solid fa-rocket"></i> Proyección Profesional</h2>
-            <div class="card" style="border-left: 4px solid var(--primary);">
-                <span class="time-date">Próximo objetivo académico: Septiembre 2026</span>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Curso de Especialización en Inteligencia Artificial y Big Data</h3>
+            <div class="card roadmap-card">
+                <span class="time-date" style="color: #a78bfa;">Próximo objetivo académico: Septiembre 2026</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Curso de Especialización en Inteligencia Artificial y Big Data</h3>
                 <div class="time-company">IES Clara del Rey</div>
-                <p style="margin-top: 1rem; color: var(--text-dim); margin-bottom: 0;">Evolución de mi perfil técnico hacia el procesamiento de datos a gran escala y la arquitectura de modelos de IA, fortaleciendo mi base actual en desarrollo multiplataforma.</p>
+                <p style="margin-top: 1rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Evolución de mi perfil técnico hacia el procesamiento de datos a gran escala y la arquitectura de modelos de IA, fortaleciendo mi base actual en desarrollo multiplataforma.</p>
             </div>
         </section>
 
-        <!-- Habilidades & Skills Section -->
+        <!-- Habilidades & Skills -->
         <section id="habilidades">
             <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Habilidades y Skills</h2>
             <div class="grid">
@@ -227,7 +275,7 @@
             </div>
         </section>
 
-        <!-- Experiencia Laboral Section -->
+        <!-- Experiencia Laboral -->
         <section id="experiencia">
             <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Laboral</h2>
             <div class="timeline">
@@ -265,7 +313,7 @@
             </div>
         </section>
 
-        <!-- Formación Académica Section -->
+        <!-- Formación Académica -->
         <section id="formacion">
             <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formación</h2>
             <div class="timeline">
@@ -293,7 +341,7 @@
 
         <!-- Footer -->
         <footer>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">© Nichita Bambuleac | Portfolio Técnico.</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 500;">© Nichita Bambuleac | Portfolio Técnico.</p>
         </footer>
     </div>
 
