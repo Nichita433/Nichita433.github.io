@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nichita | Software & Data</title>
+    <title>Nichita Bambuleac | Backend & Integraciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -51,7 +51,7 @@
         }
         .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
         .gradient-text { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin-bottom: 2rem; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin-bottom: 2rem; }
         .btn {
             display: inline-block; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600;
             text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
@@ -60,24 +60,25 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
 
         /* Sections */
-        section { padding: 6rem 0; }
+        section { padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; }
         .section-title i { color: var(--primary); font-size: 2rem; }
 
-        /* Proyectos (Glassmorphism Cards) */
+        /* Proyectos / Skills (Glassmorphism Cards) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
             background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px; padding: 2rem; transition: transform 0.3s, border-color 0.3s; position: relative; overflow: hidden;
         }
         .card:hover { transform: translateY(-5px); border-color: rgba(99, 102, 241, 0.5); }
-        .card-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light); }
         .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
         .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #cbd5e1; }
+        .tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.85rem; color: #cbd5e1; font-weight: 600; }
+        .tag-highlight { border-color: var(--primary); color: #818cf8; background: rgba(99, 102, 241, 0.1); }
 
-        /* Experiencia (Timeline) */
+        /* Experiencia y Educación (Timeline) */
         .timeline { border-left: 2px solid rgba(255,255,255,0.1); margin-left: 1rem; padding-left: 2rem; }
         .timeline-item { margin-bottom: 3rem; position: relative; }
         .timeline-item::before {
@@ -90,8 +91,10 @@
         .time-desc { color: var(--text-dim); font-size: 0.95rem; }
 
         /* Footer */
-        footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 0; text-align: center; margin-top: 4rem; }
-        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--text-light); margin: 0 0.5rem; transition: background 0.3s, color 0.3s; text-decoration: none; font-size: 1.2rem; }
+        footer { padding: 4rem 0; text-align: center; margin-top: 2rem; }
+        .contact-info { color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem; }
+        .contact-info i { color: var(--primary); margin-right: 0.5rem; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--text-light); margin: 0 0.5rem; transition: background 0.3s, color 0.3s; text-decoration: none; font-size: 1.2rem; }
         .social-icons a:hover { background: var(--primary); color: white; }
     </style>
 </head>
@@ -101,56 +104,59 @@
         <div class="nav-content">
             <a href="#" class="logo">NICHITA<span>.</span></a>
             <div class="nav-links">
-                <a href="#proyectos">Proyectos</a>
+                <a href="#perfil">Perfil</a>
                 <a href="#experiencia">Experiencia</a>
+                <a href="#formacion">Formación</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-badge"><i class="fa-solid fa-rocket"></i> Septiembre 2026: IA & Big Data</div>
-            <h1>Ingeniería de Software & <br><span class="gradient-text">Soluciones de Datos.</span></h1>
-            <p>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma. Especializado en arquitectura de integraciones corporativas, infraestructuras sólidas y desarrollo algorítmico de alta precisión.</p>
-            <a href="#proyectos" class="btn btn-primary">Ver mi trabajo</a>
+        <section class="hero" id="perfil">
+            <div class="hero-badge"><i class="fa-solid fa-code"></i> Arquitectura Backend & APIs</div>
+            <h1>Nichita <br><span class="gradient-text">Bambuleac.</span></h1>
+            <p>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). Especializado en arquitectura backend, integración de sistemas y optimización de bases de datos. Utilizo asistentes de IA para garantizar código limpio, eficiente y escalable en entornos ágiles.</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-light);">Competencia Lingüística Plena (5 Idiomas):</h3>
+                <div class="tags">
+                    <span class="tag tag-highlight">Español (Nativo)</span>
+                    <span class="tag tag-highlight">Ruso (Nativo)</span>
+                    <span class="tag tag-highlight">Rumano (Nativo)</span>
+                    <span class="tag tag-highlight">Ucraniano (Muy Alto)</span>
+                    <span class="tag">Inglés (Técnico)</span>
+                </div>
+            </div>
         </section>
 
-        <!-- Proyectos Section -->
-        <section id="proyectos">
-            <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> Arquitectura y Código</h2>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Stack Tecnológico</h2>
             <div class="grid">
                 
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
-                    <h3>Integración Cloud y Hardware IoT</h3>
-                    <p>Desarrollo e implementación de sistemas conectando el ecosistema de gestión web corporativo con hardware físico gestionado en la nube. Aplicado al despliegue de etiquetas electrónicas inteligentes para estanterías, garantizando sincronización de datos de inventario y precios en tiempo real.</p>
+                    <h3>Lenguajes y Bases de Datos</h3>
+                    <p>Desarrollo de lógica de negocio e infraestructura de datos relacionales orientada al rendimiento.</p>
                     <div class="tags">
-                        <span class="tag">Integración de Sistemas</span>
-                        <span class="tag">Cloud Architecture</span>
-                        <span class="tag">IoT</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQLite</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h3>Scripts de Trading Algorítmico</h3>
-                    <p>Ingeniería de indicadores matemáticos personalizados y algoritmos de análisis cuantitativo para entornos de MetaTrader 4 y TradingView. Optimizado para mercados de alta volatilidad (pares EUR/USD y XAU/USD). Arquitectura diseñada para ejecución manual bajo demanda, priorizando el control humano sobre la automatización ciega.</p>
+                    <h3>Sistemas, Redes e IoT</h3>
+                    <p>Despliegue de sistemas, mantenimiento de infraestructuras y conexión de hardware mediante protocolos estándar.</p>
                     <div class="tags">
-                        <span class="tag">MQL4 / PineScript</span>
-                        <span class="tag">Data Analysis</span>
-                        <span class="tag">Fintech</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-server"></i></div>
-                    <h3>Administración de Infraestructura</h3>
-                    <p>Despliegue y configuración de entornos de aplicaciones web robustas. Dominio de servidores de aplicaciones corporativas, implementando protocolos estrictos de mantenimiento (como la gestión de reinicios controlados en servidores WildFly para asegurar la persistencia y actualización correcta de las conexiones a bases de datos).</p>
-                    <div class="tags">
-                        <span class="tag">Sysadmin</span>
-                        <span class="tag">WildFly</span>
-                        <span class="tag">Bases de Datos</span>
+                        <span class="tag">Conexión IoT (REST/JSON)</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Linux / Windows</span>
+                        <span class="tag">VirtualBox</span>
+                        <span class="tag">Integración de APIs</span>
                     </div>
                 </div>
 
@@ -163,24 +169,44 @@
             <div class="timeline">
                 
                 <div class="timeline-item">
-                    <span class="time-date">Marzo 2026 — Mayo 2026</span>
+                    <span class="time-date">Prácticas</span>
                     <h3 class="time-title">Integrador de Sistemas</h3>
                     <div class="time-company">AEME ETE (AEME Group)</div>
-                    <p class="time-desc">Lideré la integración técnica entre las plataformas web del grupo y las soluciones de hardware IoT en la nube. Resolví cuellos de botella en la comunicación de datos y optimicé los flujos de trabajo para asegurar operaciones comerciales ininterrumpidas.</p>
+                    <p class="time-desc">Integración y despliegue de sistemas y APIs en entornos web y cloud. Ejecución de control de calidad (QA), monitorización activa de logs y validación de protocolos de seguridad.</p>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="time-date">Experiencia Previa</span>
-                    <h3 class="time-title">Especialista SEO y Optimización Web</h3>
-                    <div class="time-company">Meigas da rúa</div>
-                    <p class="time-desc">Auditoría técnica de sitios web, optimización de la velocidad de carga e implementación de estrategias de posicionamiento para mejorar la visibilidad orgánica en motores de búsqueda.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="time-date">Experiencia Previa</span>
-                    <h3 class="time-title">Técnico de Soporte e Infraestructura</h3>
+                    <span class="time-date">Prácticas</span>
+                    <h3 class="time-title">Técnico de Soporte</h3>
                     <div class="time-company">CD Factory</div>
-                    <p class="time-desc">Mantenimiento preventivo y correctivo de equipos. Resolución de incidencias de software y hardware de Nivel 1 y 2, garantizando la operatividad de los sistemas de cara al cliente final.</p>
+                    <p class="time-desc">Diagnóstico y resolución de incidencias complejas de hardware y software. Soporte técnico directo a usuarios y mantenimiento preventivo de equipos informáticos.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time-date">Prácticas</span>
+                    <h3 class="time-title">Especialista SEO y Web</h3>
+                    <div class="time-company">Meigas da rúa</div>
+                    <p class="time-desc">Análisis avanzado de métricas web y mejora de la experiencia de usuario (UX). Optimización SEO técnica y gestión de sistemas de contenidos basados en WordPress.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Formación Section -->
+        <section id="formacion">
+            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formación Académica</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <span class="time-date">2024 — 2026</span>
+                    <h3 class="time-title">Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                    <div class="time-company">IES Barajas</div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time-date">2022 — 2024</span>
+                    <h3 class="time-title">Grado Medio en Sistemas Microinformáticos y Redes (SMR)</h3>
+                    <div class="time-company">IES Barajas</div>
                 </div>
 
             </div>
@@ -188,14 +214,19 @@
 
         <!-- Footer -->
         <footer>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">¿Iniciamos un proyecto?</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2rem;">Actualmente explorando nuevas oportunidades en desarrollo de software y análisis de datos.</p>
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">¿Iniciamos un proyecto?</h2>
+            
+            <div class="contact-info">
+                <p><i class="fa-solid fa-location-dot"></i> Alcalá de Henares, Madrid</p>
+                <p style="margin-top: 0.5rem;"><i class="fa-solid fa-envelope"></i> nichitastasoc@gmail.com</p>
+            </div>
+
             <div class="social-icons">
-                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+                <a href="mailto:nichitastasoc@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="#"><i class="fa-brands fa-github"></i></a>
             </div>
-            <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">© 2026 Nichita. Diseñado para el rendimiento.</p>
+            <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">© 2026 Nichita Bambuleac. Construido para escalar.</p>
         </footer>
     </div>
 
