@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nichita | Desarrollador Multiplataforma</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--accent-hover); }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        /* Hero Section */
+        header { padding: 4rem 0; border-bottom: 1px solid var(--card-bg); }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Secciones */
+        section { padding: 3rem 0; border-bottom: 1px solid var(--card-bg); }
+        h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--text-main); }
+        
+        /* Grid de Proyectos */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .card:hover { border-color: var(--accent); }
+        .card h3 { margin-bottom: 0.5rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
+        .tag { background: #334155; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
+
+        /* Experiencia */
+        .job { margin-bottom: 2rem; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+        .job-title { font-weight: bold; font-size: 1.1rem; }
+        .job-date { color: var(--text-muted); font-size: 0.9rem; }
+        .job-company { color: var(--accent); margin-bottom: 0.5rem; }
+
+        /* Footer */
+        footer { padding: 3rem 0; text-align: center; color: var(--text-muted); }
+        .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SECCIÓN HERO: Tu propuesta de valor -->
+        <header>
+            <h1>Hola, soy Nichita.</h1>
+            <p class="subtitle">Desarrollador de Aplicaciones Multiplataforma (DAM) especializado en integraciones de sistemas y automatización.</p>
+            <div class="badge">Próximamente: Especialización en Inteligencia Artificial y Big Data</div>
+        </header>
+
+        <!-- SECCIÓN PROYECTOS: Casos de éxito -->
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+            <div class="grid">
+                <!-- Proyecto 1: Hardware/Cloud -->
+                <div class="card">
+                    <h3>Integración Cloud-IoT</h3>
+                    <p>Desarrollo de un sistema de integración conectando aplicaciones web de gestión con hardware IoT gestionado en la nube, específicamente aplicado a etiquetas electrónicas para estanterías.</p>
+                    <div class="tags">
+                        <span class="tag">Integración de Sistemas</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Cloud</span>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2: Lógica algorítmica -->
+                <div class="card">
+                    <h3>Scripts de Trading Cuantitativo</h3>
+                    <p>Diseño e implementación de algoritmos de análisis e indicadores personalizados para MetaTrader 4 y TradingView enfocados en los pares EUR/USD y XAU/USD. Ejecución manual bajo demanda para control total de la operativa.</p>
+                    <div class="tags">
+                        <span class="tag">Algoritmia</span>
+                        <span class="tag">Análisis de Datos</span>
+                        <span class="tag">TradingView/MT4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN EXPERIENCIA: Social Proof -->
+        <section id="experiencia">
+            <h2>Trayectoria Profesional</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Integrador de Sistemas en Prácticas</span>
+                    <span class="job-date">Marzo 2026 — Mayo 2026</span>
+                </div>
+                <div class="job-company">AEME ETE (AEME Group)</div>
+                <p>Ejecución del proyecto integral de conexión entre aplicaciones web corporativas y hardware gestionado en la nube, asegurando la sincronización de datos en tiempo real para entornos comerciales.</p>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Especialista SEO y Web en Prácticas</span>
+                    <span class="job-date">Experiencia previa</span>
+                </div>
+                <div class="job-company">Meigas da rúa</div>
+                <p>Optimización técnica de posicionamiento en buscadores, mejora del rendimiento web y gestión de la presencia digital enfocada a la conversión y experiencia de usuario.</p>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Soporte Técnico en Prácticas</span>
+                    <span class="job-date">Experiencia previa</span>
+                </div>
+                <div class="job-company">CD Factory</div>
+                <p>Resolución de incidencias tecnológicas, atención directa y mantenimiento de equipos, consolidando mis bases en infraestructura y trato directo con el cliente final.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONTACTO -->
+        <footer>
+            <h2>¿Hablamos?</h2>
+            <p>Actualmente abierto a nuevas oportunidades como desarrollador o integrador de sistemas.</p>
+            <div class="social-links">
+                <!-- Sustituye el # por los enlaces reales a tus perfiles -->
+                <a href="mailto:tu-email@gmail.com">Email</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
