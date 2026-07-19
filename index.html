@@ -34,11 +34,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Tipografía Monocromática y Estricta */
         h1, h2, h3, .logo { text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
         .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
 
-        /* Navbar Estricto */
         nav {
             position: fixed; width: 100%; top: 0; 
             background: var(--bg-base);
@@ -55,7 +53,6 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
 
-        /* Hero Section */
         .hero { padding: 12rem 0 6rem 0; text-align: left; border-bottom: 1px solid var(--border); }
         .hero h1 { font-size: 4rem; line-height: 1; margin-bottom: 2rem; letter-spacing: -1px; }
         .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; margin-bottom: 2.5rem; font-weight: 400; }
@@ -64,21 +61,18 @@
         .contact-bar span { display: flex; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); }
         .contact-bar span i { color: var(--text-main); margin-right: 0.8rem; font-size: 1rem; }
 
-        /* Botones de Alto Contraste */
         .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-        .btn { padding: 1rem 2rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; border-radius: 0; }
+        .btn { padding: 1rem 2rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; border-radius: 0; cursor: pointer; }
         .btn-primary { background: var(--text-main); color: var(--bg-base); border: 1px solid var(--text-main); }
         .btn-primary:hover { background: transparent; color: var(--text-main); }
         .btn-outline { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
         .btn-outline:hover { border-color: var(--text-main); color: var(--text-main); }
 
-        /* Sections */
         section { padding: 6rem 0; border-bottom: 1px solid var(--border); }
         section:last-child { border-bottom: none; }
         .section-title { font-size: 1.5rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; color: var(--text-muted); }
         .section-title::before { content: ''; width: 20px; height: 2px; background: var(--text-main); display: inline-block; }
 
-        /* Grid Cards Rigidas */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .card {
             background: var(--bg-card);
@@ -94,7 +88,6 @@
         .tag { background: transparent; border: 1px solid var(--border); padding: 0.4rem 0.8rem; font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; }
         .tag-highlight { border-color: var(--text-main); color: var(--text-main); font-weight: 700; background: #111; }
 
-        /* Timeline Ingenieril */
         .timeline { border-left: 1px solid var(--border); margin-left: 0.5rem; padding-left: 3rem; }
         .timeline-item { margin-bottom: 4rem; position: relative; }
         .timeline-item::before {
@@ -109,10 +102,8 @@
         ul.cv-list li { margin-bottom: 1rem; position: relative; padding-left: 1.5rem; }
         ul.cv-list li::before { content: '>'; position: absolute; left: 0; color: var(--text-main); font-family: 'JetBrains Mono', monospace; }
 
-        /* Tarjeta de Roadmap Especial */
         .roadmap-card { border-left: 4px solid var(--text-main); }
         
-        /* Footer */
         footer { padding: 4rem 0; text-align: left; }
     </style>
 </head>
@@ -159,7 +150,7 @@
                 <a href="CV_NICHITA_BAMBULEAC.pdf" target="_blank" class="btn btn-primary">
                     [ DESCARGAR CV ]
                 </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nichitastasoc@gmail.com" target="_blank" class="btn btn-outline">
+                <a href="mailto:nichitastasoc@gmail.com" target="_blank" class="btn btn-outline">
                     [ INICIAR CONTACTO ]
                 </a>
             </div>
